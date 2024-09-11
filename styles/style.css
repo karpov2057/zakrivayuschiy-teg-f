@@ -444,7 +444,3 @@ dialog[open] {
 .filter__hue-rotate-opacity-blur {
   filter: hue-rotate(120deg) opacity(60%) blur(2px);
 }
-
-.filter__hue-rotate-value {
-  filter: hue-rotate(2.1turn);
-}
