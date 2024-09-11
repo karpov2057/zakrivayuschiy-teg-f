@@ -168,8 +168,6 @@
   width: 100%;
   object-fit: cover;
   object-position: center;
-  vertical-align: middle;
-  aspect-ratio: 1/1;
 }
 
 .card__list-item-lable {
