@@ -4,3 +4,46 @@
 ✦ theme-light — класс светлой темы
 ✦ не забудьте описать стили для изменения темы через медизапрос пользовательских предпочтений
 */
+:root.theme-light {
+  --bg-color: #ffffff;
+  --accent-color: #000000;
+  --font-weight-card-title: 700;
+  --font-weight-card-text: 400;
+  --bg-image: repeating-linear-gradient(90deg, #d3d3d3 0 2px, transparent 2px 4px),
+  repeating-linear-gradient(0deg, #d3d3d3 0 2px, transparent 2px 4px),
+  linear-gradient(#e7e7e7 0%, #e7e7e7 0.1%, #1a1a1a 100%);
+  --lable-stroke: #ffffff;
+  --color-text-button: #ffffff;
+  --color-contour-heart: #000000;
+  --color-sparks-heart: #ff0000;
+}
+
+:root.theme-dark {
+  --bg-color: #000000;
+  --accent-color: #00CC14;
+  --font-weight-card-title: 785;
+  --font-weight-card-text: 465;
+  --bg-image: repeating-linear-gradient(90deg, #000 0 2px, transparent 2px 4px),
+  repeating-linear-gradient(0deg, #000 0 2px, transparent 2px 4px),
+  linear-gradient(#007f0c 0%, #007f0c 0.1%, #004306 100%);
+  --lable-stroke: #000000; 
+  --color-text-button: #00CC14;
+  --color-contour-heart: #00CC14;
+  --color-sparks-heart: #ff0000;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-color: #000000;
+    --accent-color: #00CC14;
+    --font-weight-card-title: 785;
+    --font-weight-card-text: 465;
+    --bg-image: repeating-linear-gradient(90deg, #000 0 2px, transparent 2px 4px),
+    repeating-linear-gradient(0deg, #000 0 2px, transparent 2px 4px),
+    linear-gradient(#007f0c 0%, #007f0c 0.1%, #004306 100%);
+    --lable-stroke: #000000;
+    --color-text-button: #00CC14;
+    --color-contour-heart: #00CC14;
+    --color-sparks-heart: #ff0000;
+  }
+}
