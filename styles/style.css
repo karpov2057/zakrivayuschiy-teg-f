@@ -20,7 +20,7 @@
   align-items: center;
   min-inline-size: 320px;
   min-block-size: 100dvb;
-  font-family: var(--font-main);
+  font-family: var(--font-main), sans-serif;
   font-variation-settings: 'wght' var(--font-weight-card-text);
   background-color: var(--bg-color);
   color: var(--accent-color);
@@ -54,7 +54,7 @@
 }
 
 .header__heading-title {
-  font-family: var(--font-accent);
+  font-family: var(--font-accent), fantasy;
   color: var(--accent-color);
   text-transform: uppercase;
   font-size: clamp(3.0625rem, 2.7104rem + 1.5023vw, 4.0625rem);
@@ -63,7 +63,7 @@
 }
 
 .header__heading-subtitle {
-  font-family: var(--font-accent);
+  font-family: var(--font-accent), fantasy;
   color: var(--accent-color);
   text-transform: uppercase;
   font-size: clamp(0.875rem, 0.6769rem + 0.8451vw, 1.4375rem);
@@ -80,7 +80,7 @@
 
 .theme-menu__button {
   position: relative;
-  font-family: var(--font-accent);
+  font-family: var(--font-accent), fantasy;
   font-weight: 400;
   font-size: 14px;
   background-color: var(--bg-color);
@@ -89,7 +89,6 @@
   appearance: none;
   cursor: pointer;
   transition: opacity 0.3s ease;
-  
 }
 
 .theme-menu__button:hover {
@@ -104,7 +103,7 @@
 .theme-menu__button:disabled::before {
   content: '▶';
   position: absolute;
-  animation: arrow 0.5s infinite ease-in-out;
+  animation: movementtoRight 0.5s infinite ease-in-out;
   animation-direction: alternate;
   left: -12px;
 }
@@ -175,7 +174,7 @@
   z-index: 1;
   top: 27px;
   right: 25px;
-  font-family: var(--font-accent);
+  font-family: var(--font-accent), fantasy;
   font-weight: 400;
   font-size: 14px;
   color: var(--accent-color);
@@ -196,7 +195,7 @@
   display: flex;
   flex-direction: column;
   gap: 27px;
-  padding: 25px;
+  padding: 27px 25px 23px;
   font-size: 18px;
   line-height: 21px;
   border-top: 2px solid var(--accent-color);
@@ -206,7 +205,7 @@
   display: flex;
   justify-content: end;
   align-items: center;
-  gap: 6px;
+  gap: 7px;
   padding: 0 25px 25px 0;
   color: currentColor;
 }
@@ -232,12 +231,15 @@
   transition: border 0.3s ease;
 }
 
-.card__like-button {
+.button {
   position: relative;
   z-index: 1;
   display: flex;
   justify-content: center;
   align-items: center;
+}
+
+.card__like-button {
   background-color: var(--bg-color);
   cursor: pointer;
   inline-size: 130px;
@@ -245,16 +247,16 @@
   border: 2px solid var(--accent-color);
 }
 
-.card__like-button:focus {
+.button:focus {
   outline: none;
 }
 
-.card__like-button:focus-visible {
+.button:focus-visible {
   box-shadow: 2px 2px 0px 0px var(--accent-color);
   transition: box-shadow 0.3s ease;
 }
 
-.card__like-button::before {
+.button::before {
   content: "";
   position: absolute;
   z-index: -1;
@@ -267,62 +269,29 @@
   transform-origin: left;
 }
 
-.card__like-button:hover::before {
+.button:hover::before {
   transform: scaleX(1);
 }
 
 .button__text {
-  position: relative;
-  z-index: 1;
-  font-family: var(--font-accent);
+  font-family: var(--font-accent), fantasy;
   font-size: 14px;
   font-weight: 400;
   line-height: 90%;
   color: var(--color-text-button);
   mix-blend-mode: difference;
+  padding-block-start: 5px;
 }
 
 .button__save {
-  position: relative;
-  z-index: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 8px;
+  gap: 9px;
   background-color: var(--bg-color);
   border: 2px solid var(--accent-color);
   margin: 0 auto;
-  inline-size: 340px;
-  block-size: 55px;
+  padding: 14px 18px;
   margin-block-start: 52px;
   margin-block-end: 102px;
   cursor: pointer;
-}
-
-.button__save:focus {
-  outline: none;
-}
-
-.button__save:focus-visible {
-  box-shadow: 2px 2px 0px 0px var(--accent-color);
-  transition: box-shadow 0.3s ease;
-}
-
-.button__save::before {
-  content: "";
-  position: absolute;
-  z-index: -1;
-  inset: 0;
-  inline-size: 100%;
-  block-size: 100%;
-  background: var(--accent-color);
-  transition: transform 0.5s ease-in-out;
-  transform: scaleX(0);
-  transform-origin: left;
-}
-
-.button__save:hover::before {
-  transform: scaleX(1);
 }
 
 .floppy__icon {
@@ -333,20 +302,13 @@
   mix-blend-mode: difference;
 }
 
-.button__save-text {
-  font-family: var(--font-accent);
-  font-size: 14px;
-  font-weight: 400;
-  line-height: 90%;
-  color: var(--color-text-button);
-  mix-blend-mode: difference;
-}
-
-#dialog-id {
+.dialog {
+  flex-direction: column;
+  gap: 30px;
   max-inline-size: 355px;
   border: 2px solid var(--accent-color);
   padding: 30px 30px;
-  font-family: var(--font-accent);
+  font-family: var(--font-accent), fantasy;
   font-size: 14px;
   font-weight: var(--font-weight-card-text);
   color: var(--accent-color);
@@ -355,13 +317,11 @@
   line-height: 21px;
 }
 
-dialog[open] {
+.dialog[open] {
   display: flex;
-  flex-direction: column;
-  gap: 30px;
 }
 
-#dialog-id::backdrop {
+.dialog::backdrop {
   opacity: 0.75;
   background-color: #000000;
 }
@@ -369,7 +329,7 @@ dialog[open] {
 .dialog__content {
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 20px;
 }
 
 .dialog__icon {
@@ -379,15 +339,13 @@ dialog[open] {
 }
 
 .dialog__button {
-  position: relative;
-  z-index: 1;
   border: 2px solid var(--accent-color);
   cursor: pointer;
   appearance: none;
   background-color: var(--bg-color);
   inline-size: 100%;
-  block-size: 38px;
-  padding: 12.5px 0;
+  padding: 10px 0;
+  text-transform: uppercase;
 }
 
 @media (width < 376px) {
@@ -398,8 +356,6 @@ dialog[open] {
 
   .button__save {
     flex-direction: column;
-    inline-size: 310px;
-    block-size: 80px;
   }
 
   .floppy__icon {
@@ -407,7 +363,7 @@ dialog[open] {
     block-size: 28px;
   }
 
-  #dialog-id {
+  .dialog {
     padding: 30px 40px;
   }
 
